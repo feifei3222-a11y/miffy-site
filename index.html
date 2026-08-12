@@ -58,10 +58,10 @@
     .ear { position: absolute; top: 0; width: 78px; height: 175px; border: var(--line) solid var(--ink); border-radius: 50% 50% 40% 40%; background: var(--paper); }
     .ear.left { left: 38px; transform: rotate(-6deg); }.ear.right { right: 38px; transform: rotate(6deg); }
     .head { position: absolute; top: 115px; left: 19px; width: 229px; height: 210px; border: var(--line) solid var(--ink); border-radius: 46% 46% 48% 48%; background: var(--paper); }
-    .body { position: absolute; bottom: 0; left: 27px; width: 213px; height: 150px; border: var(--line) solid var(--ink); border-radius: 49% 49% 9px 9px; background: var(--orange); }
+    .body { position: absolute; bottom: 0; left: 27px; width: 213px; height: 120px; border: var(--line) solid var(--ink); border-radius: 49% 49% 9px 9px; background: var(--orange); }
     .eye { position: absolute; z-index: 5; top: 204px; width: 7px; height: 7px; border-radius: 50%; background: var(--ink); }.eye.left { left: 86px; }.eye.right { right: 86px; }
-    .mouth { position: absolute; z-index: 5; top: 239px; left: 132px; width: 3px; height: 30px; background: var(--ink); }
-    .mouth:before, .mouth:after { content: ""; position: absolute; width: 25px; height: 3px; background: var(--ink); top: 12px; }.mouth:before { right: 0; }.mouth:after { left: 0; }
+    .mouth { position: absolute; z-index: 5; top: 226px; left: 121px; width: 26px; height: 26px; }
+    .mouth:before, .mouth:after { content: ""; position: absolute; left: 12px; top: 0; width: 3px; height: 26px; background: var(--ink); transform: rotate(45deg); }.mouth:after { transform: rotate(-45deg); }
     .button-dot { position: absolute; z-index: 5; top: 336px; left: 128px; width: 10px; height: 10px; border: 2px solid var(--ink); border-radius: 50%; background: var(--yellow); }
     .scroll-note { position: absolute; bottom: 21px; left: 50%; transform: translateX(-50%); z-index: 6; font-size: 12px; font-weight: 800; }
     .scroll-note:after { content: "↓"; padding-left: 9px; font-size: 17px; }
@@ -93,6 +93,22 @@
     .choice { text-align: left; cursor: pointer; border: 2px solid var(--ink); background: var(--paper); padding: 13px 14px; font-weight: 800; }.choice:hover { background: var(--yellow); }.choice.correct { background: var(--blue); }.choice.wrong { background: var(--orange); }
     .result { min-height: 24px; margin: 19px 0 0; font-weight: 900; }
     .quiz-copy p { max-width: 390px; line-height: 1.75; font-size: 18px; font-weight: 700; }
+    .day { background: var(--blue); border-bottom: var(--line) solid var(--ink); }
+    .day-grid { display: grid; grid-template-columns: repeat(4, 1fr); border: var(--line) solid var(--ink); border-right: 0; }
+    .moment { min-height: 280px; padding: 26px 24px; background: var(--paper); border-right: var(--line) solid var(--ink); position: relative; overflow: hidden; }
+    .moment:nth-child(2) { background: var(--yellow); }.moment:nth-child(3) { background: var(--pink); }.moment:nth-child(4) { background: #d8ebc1; }
+    .moment time { display: block; font-size: 13px; font-weight: 900; margin-bottom: 54px; }.moment h3 { margin: 0 0 10px; font-size: 23px; }.moment p { margin: 0; line-height: 1.65; font-size: 14px; font-weight: 700; }
+    .moment-mark { position: absolute; right: 20px; top: 20px; width: 42px; height: 42px; border: var(--line) solid var(--ink); border-radius: 50%; display: grid; place-items: center; background: var(--paper); font-size: 20px; }
+    .library { background: var(--paper); }
+    .library-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .book-card { min-height: 310px; border: var(--line) solid var(--ink); padding: 20px; display: flex; flex-direction: column; justify-content: space-between; box-shadow: 5px 5px 0 var(--ink); }
+    .book-card:nth-child(1) { background: var(--yellow); }.book-card:nth-child(2) { background: var(--pink); }.book-card:nth-child(3) { background: var(--blue); }
+    .book-cover { height: 160px; border: 2px solid var(--ink); background: var(--paper); display: grid; place-items: center; font-size: 64px; font-family: Arial, sans-serif; }
+    .book-card h3 { margin: 18px 0 5px; font-size: 21px; }.book-card p { margin: 0; font-size: 14px; font-weight: 700; line-height: 1.55; }
+    .note { background: var(--yellow); border-top: var(--line) solid var(--ink); }
+    .note-box { display: grid; grid-template-columns: 1fr auto; gap: 36px; align-items: center; border: var(--line) solid var(--ink); background: var(--paper); padding: clamp(28px, 5vw, 54px); }
+    .note-box h2 { margin-bottom: 14px; }.note-box p { margin: 0; max-width: 570px; font-weight: 700; line-height: 1.7; }
+    .stamp { width: 122px; height: 122px; border: var(--line) dashed var(--ink); border-radius: 50%; display: grid; place-items: center; text-align: center; font-size: 15px; font-weight: 900; line-height: 1.25; transform: rotate(-10deg); }
     footer { padding: 24px 0; background: var(--yellow); border-top: var(--line) solid var(--ink); }
     .footer-inner { display: flex; justify-content: space-between; gap: 20px; align-items: center; font-size: 13px; font-weight: 700; }.footer-inner p { margin: 0; }
     body.night { --paper: #d9eef7; --yellow: #ffba2e; --orange: #ea7356; --blue: #88c28c; --pink: #d4a2db; }
@@ -102,7 +118,7 @@
       .scene { height: 410px; }.miffy { transform: translateX(-50%) scale(.82); transform-origin: bottom; bottom: 6px; }.sun { top: 13%; right: 7%; }.flower { left: 5%; bottom: 43px; }.scroll-note { display: none; }
       section { padding: 62px 0; }.section-head { display: block; margin-bottom: 27px; }.section-head p { margin-top: 14px; }
       .story-grid, .quiz-box { grid-template-columns: 1fr; gap: 0; }.story-art { min-height: 310px; border-right: 0; border-bottom: var(--line) solid var(--ink); }.story-copy { padding: 34px 28px; }
-      .fact-grid { grid-template-columns: 1fr; }.fact { min-height: 0; padding: 26px; }.fact .number { margin-bottom: 13px; }
+      .fact-grid, .day-grid, .library-grid { grid-template-columns: 1fr; }.fact { min-height: 0; padding: 26px; }.fact .number { margin-bottom: 13px; }.moment { min-height: 205px; }.moment time { margin-bottom: 30px; }.library-grid { gap: 18px; }.book-card { min-height: 240px; }.book-cover { height: 120px; }.note-box { grid-template-columns: 1fr; gap: 24px; }.stamp { width: 98px; height: 98px; }
       .quiz-box { gap: 34px; }.quiz-copy { order: -1; }.quiz-copy p { font-size: 16px; }.quiz-card { padding: 25px; box-shadow: 5px 5px 0 var(--ink); }
       .footer-inner { display: block; }.footer-inner p + p { margin-top: 8px; }
     }
@@ -114,7 +130,10 @@
     <section class="hero" id="home"><div class="shell hero-grid"><div class="hero-copy"><p class="eyebrow">MIFFY'S LITTLE WORLD</p><h1>小小的耳朵，<br>大大的世界。</h1><p>从一本书开始，走进米菲兔简单、勇敢、又充满好奇心的日常。</p><a class="cta" href="#story">认识米菲 <span class="arrow">→</span></a></div><div class="scene" aria-label="米菲兔在花园中的插画"><div class="sun"></div><div class="cloud one"></div><div class="cloud two"></div><div class="hill left"></div><div class="hill right"></div><div class="flower"><i class="petal p1"></i><i class="petal p2"></i><i class="petal p3"></i><i class="petal p4"></i></div><div class="miffy"><div class="ear left"></div><div class="ear right"></div><div class="head"></div><div class="body"></div><i class="eye left"></i><i class="eye right"></i><i class="mouth"></i><i class="button-dot"></i></div></div></div><div class="scroll-note">向下探索</div></section>
     <section class="story" id="story"><div class="shell"><div class="section-head"><h2>认识米菲</h2><p>用最少的线条，留下最多的想象空间。这就是迪克·布鲁纳笔下的朋友。</p></div><div class="story-grid"><div class="story-art" aria-hidden="true"><div class="circle"></div><div class="miffy mini"><div class="ear left"></div><div class="ear right"></div><div class="head"></div><div class="body"></div><i class="eye left"></i><i class="eye right"></i><i class="mouth"></i><i class="button-dot"></i></div><div class="book"></div></div><article class="story-copy"><h3>一位安静又坚定的朋友</h3><p>米菲喜欢和朋友一起玩、照顾小动物，也会在每一次小小的冒险里，学着认识身边的世界。</p><p>她的世界不复杂，却总是很认真。这份清澈，正是我们不断回来的原因。</p><b>NIJNTJE, SINCE 1955</b></article></div></div></section>
     <section class="facts" id="facts"><div class="shell"><div class="section-head"><h2>小小档案</h2><p>关于她的三个可爱事实。</p></div><div class="fact-grid"><article class="fact"><span class="number">1955</span><h3>第一次出现</h3><p>米菲最初诞生于荷兰艺术家迪克·布鲁纳创作的绘本。</p></article><article class="fact"><span class="number">2</span><h3>只眼睛，几笔线条</h3><p>极简的面孔让每个人都能读出属于自己的心情。</p></article><article class="fact"><span class="number">70+</span><h3>年温柔陪伴</h3><p>跨越语言与年龄，米菲一直在讲述简单而真诚的故事。</p></article></div></div></section>
+    <section class="day" id="day"><div class="shell"><div class="section-head"><h2>米菲的一天</h2><p>平凡的一天，也有好多值得认真对待的小事。</p></div><div class="day-grid"><article class="moment"><span class="moment-mark">☀</span><time>08:00</time><h3>早安，太阳</h3><p>拉开窗帘，和花园里的每一朵花打招呼。</p></article><article class="moment"><span class="moment-mark">✦</span><time>11:30</time><h3>朋友时间</h3><p>分享玩具、讲一个故事，再一起开怀大笑。</p></article><article class="moment"><span class="moment-mark">♡</span><time>15:00</time><h3>小小冒险</h3><p>去公园找一片特别的叶子，把它收藏起来。</p></article><article class="moment"><span class="moment-mark">☾</span><time>20:00</time><h3>晚安，月亮</h3><p>读完一页书，给今天发生的好事说晚安。</p></article></div></div></section>
+    <section class="library" id="library"><div class="shell"><div class="section-head"><h2>小小阅读角</h2><p>翻开一页，听见关于友情、勇气和好奇心的温柔故事。</p></div><div class="library-grid"><article class="book-card"><div class="book-cover">M</div><div><h3>《米菲在花园》</h3><p>一颗种子、一把小铲子，还有等待花开的耐心。</p></div></article><article class="book-card"><div class="book-cover">○</div><div><h3>《米菲的朋友》</h3><p>真正的朋友，是愿意听你说完每一个小小发现的人。</p></div></article><article class="book-card"><div class="book-cover">✦</div><div><h3>《米菲看星星》</h3><p>夜空很大，但只要抬起头，星星就离我们很近。</p></div></article></div></div></section>
     <section class="quiz" id="quiz"><div class="shell quiz-box"><div class="quiz-copy"><p class="eyebrow">A LITTLE QUESTION</p><h2>你认识她吗？</h2><p>一个小问题，献给每一位已经在米菲的世界里停留过的人。</p></div><div class="quiz-card"><h3>米菲最初来自哪里？</h3><div class="choices"><button class="choice" data-answer="wrong">日本</button><button class="choice" data-answer="correct">荷兰</button><button class="choice" data-answer="wrong">英国</button></div><p class="result" id="result" aria-live="polite"></p></div></div></section>
+    <section class="note"><div class="shell note-box"><div><h2>写给米菲的一封小信</h2><p>愿我们一直保留一点好奇心：愿意停下来看看云，认真照顾一株小植物，也愿意把温柔分给身边的人。</p></div><div class="stamp">LITTLE<br>WORLD<br>POST</div></div></section>
   </main>
   <footer><div class="shell footer-inner"><p>miffy / little world</p><p>一个非官方的致意页面，向迪克·布鲁纳的经典创作致敬。</p></div></footer>
   <script>
